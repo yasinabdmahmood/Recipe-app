@@ -1,2 +1,20 @@
-<h1>Recipe#index</h1>
-<p>Find me in app/views/recipe/index.html.erb</p>
+<div class="container d-flex flex-column ">
+    <% @recipes.each do |recipe| %>
+        <div class="d-flex align-items-stretch border m-3 p-3">
+            <div class="d-flex flex-column col-4  justify-content-between ">
+              <h3>
+              <%= recipe.name  %>
+              </h3>
+              <%= link_to "Delete", delete_recipe_path(id: recipe.id), method: :delete %>
+            </div>
+            <div class="col-8 d-flex justify-content-center align-items-center">
+              <p><%= recipe.description %></p>
+            </div>
+        </div>
+        <%=  %>
+    <% end %>
+    <div>
+     <%= link_to "Add recipe", recipe_new_path, class: "m-3 btn btn-primary" %>
+    </div>
+    
+</div>

@@ -1,5 +1,6 @@
 class RecipeController < ApplicationController
   def index
+    @recipes = current_user.recipes
   end
 
   def new
@@ -17,6 +18,11 @@ class RecipeController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    Recipe.find_by(id: params[:id]).destroy
+    redirect_to recipe_index_path
   end
   
   private
