@@ -4,15 +4,14 @@ class RecipeController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.new()
+    @recipe = Recipe.new
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
-   
-    
+
     @recipe.user = current_user
-   
+
     if @recipe.save
       redirect_to recipe_index_path
     else
@@ -28,7 +27,7 @@ class RecipeController < ApplicationController
   def public_recipes
     @public_recipes = Recipe.where(public: true)
   end
-  
+
   private
 
   def recipe_params
