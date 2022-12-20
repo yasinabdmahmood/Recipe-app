@@ -24,6 +24,10 @@ class RecipeController < ApplicationController
     Recipe.find_by(id: params[:id]).destroy
     redirect_to recipe_index_path
   end
+
+  def public_recipes
+    @public_recipes = Recipe.where(public: true)
+  end
   
   private
 
