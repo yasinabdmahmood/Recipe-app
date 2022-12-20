@@ -6,12 +6,11 @@
               <h3>
               <%= recipe.name  %>
               </h3>
-              <%= link_to "Delete", delete_recipe_path(id: recipe.id), method: :delete %>
+              <h5>By :  <%=recipe.user.name  %></h5>
             </div>
             <div class="col-8 d-flex justify-content-center align-items-center">
               <p><%= recipe.description %></p>
             </div>
         </div>
-        <%=  %>
     <% end %> 
 </div>
