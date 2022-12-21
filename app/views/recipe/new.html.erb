@@ -1,3 +1,4 @@
+<%= render partial: '/partials/navbar' %>
 <div class="d-flex w-100 align-items-center justify-content-center">
     <%= form_with model: @new_recipe, url: recipe_create_path, method: :post, local: true,class:"w-50 p-3 flex-column justify-content-center", scope: :new_recipe do |f| %>
         <div class="form-group">
