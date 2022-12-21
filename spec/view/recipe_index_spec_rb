@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Recipe index page', type: :feature do
   before(:example) do
-    @subject1 = User.create(name: 'Alan Luqman')
-    @subject2 = User.create(name: 'Nich')
     @user = User.create(name: 'Yaseen', email: 'test@test.com', password: "password", password_confirmation: "password")
     @recipe1 = Recipe.create(user: @user, name: 'recipe1', preparation_time: 1, cooking_time: 1, description: 'description1', public: true)
     @recipe2 = Recipe.create(user: @user, name: 'recipe2', preparation_time: 1, cooking_time: 1, description: 'description2', public: false)
