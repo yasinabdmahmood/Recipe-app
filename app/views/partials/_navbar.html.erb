@@ -17,11 +17,11 @@
       </li>
     </ul>
     <ul class="navbar-nav float-right">
-      <li class="nav-item active text-white">
-        <%= "current_user.name" %>
+      <li class="nav-item active text-white mx-2 d-flex align-items-center ">
+        <h3><%= "current_user.name" %></h3>
       </li>
-      <li class="nav-item active">
-        <img src="../../app/assets/images/person-circle.svg" />
+      <li class="nav-item active mx-5">
+        <img class="img-thumbnail" src=<%= image_path("person-circle.svg") %> style="width:50px;" />
       </li>
     </ul> 
   </div>
