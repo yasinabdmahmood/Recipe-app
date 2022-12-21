@@ -33,4 +33,8 @@ class RecipeController < ApplicationController
   def recipe_params
     params.require(:new_recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
+
+  def after_sign_in_path_for(_resource)
+    root_path
+  end
 end
