@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'foods/index'
   get 'foods/new'
   post 'foods/create'
+  get 'foods/destroy/:id', to: 'foods#destroy', as: 'delete_food'
   devise_for :users
   root "recipe#public_recipes"
   get 'recipe/index'
