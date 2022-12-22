@@ -1,0 +1,24 @@
+<%= render partial: '/partials/navbar' %>
+<div class="container p-4">
+  <div class="d-flex justify-content-center">
+   <h1><%= @recipe.name %></h1>
+  </div>
+  <div class="d-flex justify-content-between">
+    <div class="d-flex flex-column my-3">
+      <h3 class=" my-3">Preparation time: <%= @recipe.preparation_time %> hour</h3>
+      <h3 class=" my-3">Cooking time: <%= @recipe.cooking_time %> hour</h3>
+      <h3 class="fw-bold my-4">Steps go here ...</h3>
+    </div>
+    <div class="my-3">
+        <label class="d-flex">
+          <h3 class="fw-bold d-flex align-items-center m-2">Public</h3>
+          <img class="img-thumbnail my-3" src=<%= image_path("toggle-off.svg") %> style="width:50px;" class="rounded-7"/>
+        </label>   
+    </div>
+  </div>
+  <div class="d-flex justify-content-between">
+  <%= button_to("Gnerate shopping list", { action: "new" }, class: "btn btn-secondary") %>
+  <%= button_to("Add ingredient", { action: "new" }, class: "btn btn-secondary") %>
+  </div>
+  <hr style="height:2px;border-width:1px;background-color:black">
+</div>

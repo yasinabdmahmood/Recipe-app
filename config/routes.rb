@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root "recipe#public_recipes"
   get 'recipe/index'
+  get 'recipe/detail/:id', to: "recipe#details", as: "recipe_details"
   get 'recipe/new'
   get 'recipe/public_recipes'
   post 'recipe/create'
