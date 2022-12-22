@@ -19,7 +19,7 @@ class FoodsController < ApplicationController
   end
 
   def destroy
-    puts "Deted food"
+    puts 'Deted food'
     Food.find_by(id: params[:id]).destroy
     redirect_to foods_index_path
   end
