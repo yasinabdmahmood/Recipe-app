@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   get 'recipe/public_recipes'
   post 'recipe/create'
   get 'recipe/destroy/:id', to: 'recipe#destroy', as: 'delete_recipe'
+  get 'recipe_food/edit_form/:id', to: 'recipe_food#edit_form', as: 'edit_form_recipe_food'
+  post 'recipe_food/edit/:id', to: 'recipe_food#edit', as: 'edit_recipe_food'
+  get 'recipe_food/destroy/:id', to: 'recipe_food#destroy', as: 'delete_recipe_food'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

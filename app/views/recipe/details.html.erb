@@ -21,4 +21,30 @@
   <%= button_to "Add ingredient",recipe_new_ingredient_path(@recipe.id),class: "btn btn-secondary", method: :get %>
   </div>
   <hr style="height:2px;border-width:1px;background-color:black">
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Food</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Value</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% %>
+      <% @recipe_foods.each do |recipe_food| %>
+        <tr>
+          <th scope="row"><%= recipe_food.food.name %></th>
+          <td><%= recipe_food.quantity%> <%= recipe_food.food.meadurement_unit %></td>
+          <td><%= recipe_food.quantity*recipe_food.food.price%></td>
+          <td>
+          <%= link_to "Modify", edit_form_recipe_food_path(id: recipe_food.id), method: :delete, class: "mx-2" %>
+          <%= link_to "Remove", delete_recipe_food_path(id: recipe_food.id), method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
