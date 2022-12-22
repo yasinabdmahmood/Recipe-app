@@ -8,11 +8,11 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Recipe.create(food_params)
+    @food = Food.new(food_params)
     @food.user = current_user
 
     if @food.save
-      redirect_to food_index_path
+      redirect_to foods_index_path
     else
       render :new
     end
