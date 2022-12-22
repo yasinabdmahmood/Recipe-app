@@ -8,6 +8,7 @@
               <%= recipe.name  %>
               </h3>
               <h5>By :  <%=recipe.user.name  %></h5>
+              <%= link_to "Details", recipe_details_path(id: recipe.id), method: :get %>
             </div>
             <div class="col-8 d-flex justify-content-center align-items-center">
               <p><%= recipe.description %></p>

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root "recipe#public_recipes"
   get 'recipe/index'
   get 'recipe/detail/:id', to: "recipe#details", as: "recipe_details"
+  get 'recipe/new_ingredient/:id', to: "recipe#new_ingredient", as: "recipe_new_ingredient"
+  post 'recipe/create_ingredient/:id', to: "recipe#create_ingredient", as: "recipe_create_ingredient"
   get 'recipe/new'
   get 'recipe/public_recipes'
   post 'recipe/create'
