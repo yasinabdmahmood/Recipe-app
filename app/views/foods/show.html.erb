@@ -1,6 +1,6 @@
 <%= render partial: '/partials/navbar' %>
 <div class="d-flex w-100 align-items-center justify-content-center">
-    <%= form_with model: @new_food, url: foods_show_path, method: :post, local: true,class:"w-50 p-3 flex-column justify-content-center", scope: :new_foods do |f| %>
+    <%= form_with model: @food, url: foods_show_path, method: :post, local: true,class:"w-50 p-3 flex-column justify-content-center", scope: :food do |f| %>
         <div class="form-group">
             <%= f.label :name %><br>
             <%= f.text_field :name,class:"form-control" %>

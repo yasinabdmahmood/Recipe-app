@@ -8,7 +8,7 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Recipe.new(food_params)
+    @food = Recipe.create(food_params)
     @food.user = current_user
 
     if @food.save
@@ -26,6 +26,6 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:new_recipe).permit(:name, :meadurement_unit, :price, :quantity)
+    params.require(:food).permit(:name, :meadurement_unit, :price, :quantity)
   end
 end
