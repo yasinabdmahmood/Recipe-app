@@ -28,3 +28,9 @@
 .alert {
   background-color: #343a40;
 }
+
+.logo {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
