@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
   root "recipe#public_recipes"
   get 'recipe/index'
+  get 'recipe/detail/shopping_list/:id', to: "recipe#generate_shopping_list", as: "shopping_list"
   get 'recipe/detail/:id', to: "recipe#details", as: "recipe_details"
   get 'recipe/new_ingredient/:id', to: "recipe#new_ingredient", as: "recipe_new_ingredient"
   post 'recipe/create_ingredient/:id', to: "recipe#create_ingredient", as: "recipe_create_ingredient"

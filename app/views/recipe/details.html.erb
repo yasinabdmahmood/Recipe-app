@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="d-flex justify-content-between">
-  <%= button_to "Generate shopping list",recipe_new_ingredient_path(@recipe.id),class: "btn btn-secondary", method: :get %>
+  <%= button_to "Generate shopping list",shopping_list_path(current_user.id),class: "btn btn-secondary", method: :get %>
   <%= button_to "Add ingredient",recipe_new_ingredient_path(@recipe.id),class: "btn btn-secondary", method: :get %>
   </div>
   <hr style="height:2px;border-width:1px;background-color:black">

@@ -50,6 +50,10 @@ class RecipeController < ApplicationController
     @public_recipes = Recipe.where(public: true)
   end
 
+  def generate_shopping_list
+    @recipe_foods = RecipeFood.includes(:food, :recipe).select {|item| item.food.user.id == current_user.id }
+  end
+
   private
 
   def recipe_params

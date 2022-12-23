@@ -1,0 +1,31 @@
+<%= render partial: '/partials/navbar' %>
+<div class="container p-4">
+    <div class="d-flex justify-content-center">
+     <h1>Shopping list</h1>
+    </div>
+    <div class="d-flex justify-content-between mt-5">
+    <h5>Amount of food items to buy: <%= 'dumy data'%></h5>
+    <h5>Total value of food needed: <%= 'dumy data'%></h5>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Food</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% %>
+                <% @recipe_foods.each do |recipe_food| %>
+                <tr>
+                    <th scope="row"><%= recipe_food.food.name %></th>
+                    <td><%= recipe_food.quantity%> <%= recipe_food.food.meadurement_unit %></td>
+                    <td><%= recipe_food.quantity*recipe_food.food.price%></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
