@@ -21,8 +21,11 @@
     </div>
   </div>
   <div class="d-flex justify-content-between">
-  <%= button_to "Generate shopping list",shopping_list_path(current_user.id),class: "btn btn-secondary", method: :get %>
-  <%= button_to "Add ingredient",recipe_new_ingredient_path(@recipe.id),class: "btn btn-secondary", method: :get %>
+  <% if can? :destroy, @recipe %>
+    <%= button_to "Generate shopping list",shopping_list_path(current_user.id),class: "btn btn-secondary", method: :get %>
+    <%= button_to "Add ingredient",recipe_new_ingredient_path(@recipe.id),class: "btn btn-secondary", method: :get %>
+  <% end %>
+  
   </div>
   <hr style="height:2px;border-width:1px;background-color:black">
   <div>
@@ -43,8 +46,12 @@
           <td><%= recipe_food.quantity%> <%= recipe_food.food.meadurement_unit %></td>
           <td><%= recipe_food.quantity*recipe_food.food.price%></td>
           <td>
+          <% if can? :destroy, @recipe %>
           <%= link_to "Modify", edit_form_recipe_food_path(id: recipe_food.id), method: :delete, class: "mx-2" %>
           <%= link_to "Remove", delete_recipe_food_path(id: recipe_food.id), method: :delete %>
+          <% else %>
+          <span>No action is allowed for this recipe</span>
+          <% end %>
           </td>
         </tr>
       <% end %>
