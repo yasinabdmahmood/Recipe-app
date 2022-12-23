@@ -6,6 +6,7 @@
               <h3>
               <%= recipe.name  %>
               </h3>
+              <%= link_to "Details", recipe_details_path(id: recipe.id), method: :get %>
               <%= link_to "Delete", delete_recipe_path(id: recipe.id), method: :delete %>
             </div>
             <div class="col-8 d-flex justify-content-center align-items-center">
