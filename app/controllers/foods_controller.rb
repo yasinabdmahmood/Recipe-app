@@ -19,8 +19,11 @@ class FoodsController < ApplicationController
   end
 
   def destroy
-    puts 'Deted food'
-    Food.find_by(id: params[:id]).destroy
+    current_food = Food.find_by(id: params[:id])
+    current_food.recipe_foods.each do |recipe_food|
+      recipe_food.destroy
+    end
+    current_food.destroy
     redirect_to foods_index_path
   end
 

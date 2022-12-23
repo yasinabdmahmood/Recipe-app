@@ -42,7 +42,11 @@ class RecipeController < ApplicationController
   end
 
   def destroy
-    Recipe.find_by(id: params[:id]).destroy
+    current_recipe = Recipe.find_by(id: params[:id])
+    current_recipe.recipe_foods.each do |recipe_food|
+      recipe_food.destroy
+    end
+    current_recipe.destroy
     redirect_to recipe_index_path
   end
 
@@ -51,7 +55,7 @@ class RecipeController < ApplicationController
   end
 
   def generate_shopping_list
-    @recipe_foods = RecipeFood.includes(:food, :recipe).select { |item| item.food.user.id == current_user.id }
+    @recipe_foods = RecipeFood.includes(:food, :recipe).select { |item| item.food.user_id == current_user.id }
   end
 
   private
