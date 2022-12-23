@@ -1,0 +1,18 @@
+<%= render partial: '/partials/navbar' %>
+<div class="container d-flex flex-column justify-content-center">
+    <h1 class="text-center">Public Recipes</h1>
+    <% @public_recipes.each do |recipe| %>
+        <div class="d-flex align-items-stretch border m-3 p-3">
+            <div class="d-flex flex-column col-4  justify-content-between ">
+              <h3>
+              <%= recipe.name  %>
+              </h3>
+              <h5>By :  <%=recipe.user.name  %></h5>
+              <%= link_to "Details", recipe_details_path(id: recipe.id), method: :get %>
+            </div>
+            <div class="col-8 d-flex justify-content-center align-items-center">
+              <p><%= recipe.description %></p>
+            </div>
+        </div>
+    <% end %> 
+</div>

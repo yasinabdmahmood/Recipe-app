@@ -1,0 +1,20 @@
+<%= render partial: '/partials/navbar' %>
+<div class="d-flex w-100 align-items-center justify-content-center">
+    <%= form_with model: @recipe_food, url: edit_recipe_food_path(id: @recipe_food_id), method: :post, local: true,class:"w-50 p-3 flex-column justify-content-center", scope: :new_recipe_food do |f| %>
+        
+        <div class="form-group">
+        <%= f.label :Quantity %><br>
+        <%= f.number_field :quantity,class:"form-control" %>
+        </div>
+
+        <div class="form-group">
+        
+        <%= f.select :food, @foods %>
+        </div>
+
+
+        
+
+        <%= f.submit "Modify", class: "btn btn-success" %>
+    <% end %>
+</div>

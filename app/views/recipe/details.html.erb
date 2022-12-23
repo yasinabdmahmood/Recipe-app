@@ -1,0 +1,61 @@
+<%= render partial: '/partials/navbar' %>
+<div class="container p-4">
+  <div class="d-flex justify-content-center">
+   <h1><%= @recipe.name %></h1>
+  </div>
+  <div class="d-flex justify-content-between">
+    <div class="d-flex flex-column my-3">
+      <h3 class=" my-3">Preparation time: <%= @recipe.preparation_time %> hour</h3>
+      <h3 class=" my-3">Cooking time: <%= @recipe.cooking_time %> hour</h3>
+      <h3 class="fw-bold my-4">Steps go here ...</h3>
+    </div>
+    <div class="my-3">
+        <label class="d-flex">
+          <h3 class="fw-bold d-flex align-items-center m-2">Public</h3>
+          <% if @recipe.public %>
+            <img class="img-thumbnail my-3" src=<%= image_path("toggle-on.svg") %> style="width:50px;" class="rounded-7"/>
+          <% else %>
+            <img class="img-thumbnail my-3" src=<%= image_path("toggle-off.svg") %> style="width:50px;" class="rounded-7"/>
+          <% end %>
+        </label>
+    </div>
+  </div>
+  <div class="d-flex justify-content-between">
+  <% if can? :destroy, @recipe %>
+    <%= button_to "Generate shopping list",shopping_list_path(current_user.id),class: "btn btn-secondary", method: :get %>
+    <%= button_to "Add ingredient",recipe_new_ingredient_path(@recipe.id),class: "btn btn-secondary", method: :get %>
+  <% end %>
+  
+  </div>
+  <hr style="height:2px;border-width:1px;background-color:black">
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Food</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Value</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% %>
+      <% @recipe_foods.each do |recipe_food| %>
+        <tr>
+          <th scope="row"><%= recipe_food.food.name %></th>
+          <td><%= recipe_food.quantity%> <%= recipe_food.food.meadurement_unit %></td>
+          <td><%= recipe_food.quantity*recipe_food.food.price%></td>
+          <td>
+          <% if can? :destroy, @recipe %>
+          <%= link_to "Modify", edit_form_recipe_food_path(id: recipe_food.id), method: :delete, class: "mx-2" %>
+          <%= link_to "Remove", delete_recipe_food_path(id: recipe_food.id), method: :delete %>
+          <% else %>
+          <span>No action is allowed for this recipe</span>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
