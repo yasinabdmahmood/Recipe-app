@@ -43,9 +43,7 @@ class RecipeController < ApplicationController
 
   def destroy
     current_recipe = Recipe.find_by(id: params[:id])
-    current_recipe.recipe_foods.each do |recipe_food|
-      recipe_food.destroy
-    end
+    current_recipe.recipe_foods.each(&:destroy)
     current_recipe.destroy
     redirect_to recipe_index_path
   end

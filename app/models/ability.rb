@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -10,6 +8,6 @@ class Ability
     can :manage, Recipe, user_id: user.id # if the user is logged in can manage it's own posts
     can :create, Food
     can :destroy, Food, user_id: user.id
-    can :create, RecipeFood  
+    can :create, RecipeFood
   end
 end
