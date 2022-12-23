@@ -8,13 +8,14 @@ class RecipeFoodController < ApplicationController
     def edit
         recipe_food = RecipeFood.find(params[:id])
         recipe_food.quantity = ingredient_params[:quantity]
-        recipe_food.food =Food.find(ingredient_params[:food])
+        recipe_food.food = Food.find(ingredient_params[:food])
         if recipe_food.save
             redirect_to recipe_details_path(id: recipe_food.recipe.id)
         else
             redirect_back(fallback_location: root_path)
         end
     end
+
     def destroy
       RecipeFood.find_by(id: params[:id]).destroy
       redirect_back(fallback_location: root_path)
@@ -26,4 +27,3 @@ class RecipeFoodController < ApplicationController
         params.require(:new_recipe_food).permit(:quantity, :food)
     end
   end
-  

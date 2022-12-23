@@ -3,9 +3,16 @@
     <div class="d-flex justify-content-center">
      <h1>Shopping list</h1>
     </div>
+    <% sum = 0%>
+    <% count = 0%>
+    <% @recipe_foods.each do |list| %>
+        <% value = list.quantity * list.food.price %>
+        <% sum += value %>
+        <% count += 1 %>
+    <% end %>
     <div class="d-flex justify-content-between mt-5">
-    <h5>Amount of food items to buy: <%= 'dumy data'%></h5>
-    <h5>Total value of food needed: <%= 'dumy data'%></h5>
+    <h5>Amount of food items to buy: <%= count %></h5>
+    <h5>Total value of food needed: <%= sum %></h5>
     </div>
     <div>
         <table class="table table-striped">
