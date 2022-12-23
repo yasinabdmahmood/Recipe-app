@@ -51,7 +51,7 @@ class RecipeController < ApplicationController
   end
 
   def generate_shopping_list
-    @recipe_foods = RecipeFood.includes(:food, :recipe).select {|item| item.food.user.id == current_user.id }
+    @recipe_foods = RecipeFood.includes(:food, :recipe).select { |item| item.food.user.id == current_user.id }
   end
 
   private

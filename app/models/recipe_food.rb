@@ -3,5 +3,4 @@ class RecipeFood < ApplicationRecord
   belongs_to :food
 
   validates :quantity, presence: true
-
 end
