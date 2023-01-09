@@ -1,7 +1,7 @@
 databases:
-  - name: recipe_app
-    databaseName: recipe_app
-    user: recipe_app
+  - name: mysite
+    databaseName: mysite
+    user: mysite
 
 services:
   - type: web
