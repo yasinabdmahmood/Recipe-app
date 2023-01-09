@@ -1,18 +1,17 @@
 databases:
-  - name: recipe_app
-    databaseName: recipe_app
-    user: recipe_app
+  - name: postgres
+    ipAllowList: []
 
 services:
   - type: web
-    name: recipe_app
+    name: rails
     env: ruby
     buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec puma -C config/puma.rb"
+    startCommand: "bundle exec rails s"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: recipe_app
+          name: postgres
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
@@ -20,4 +19,4 @@ services:
     name: redis
     ipAllowList: []
     plan: free
-    maxmemryPolicy: noeviction
+    maxmemoryPolicy: noeviction
