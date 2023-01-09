@@ -44,7 +44,7 @@
 
 ## 🚀 Live Version <a name="live-demo"></a>
 
-- [Comming soon]()
+- [Live](https://recipe-qykx.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
